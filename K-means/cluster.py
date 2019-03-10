@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class cluster():
     """
     Class representing a cluster in the k-means algorithm
@@ -15,7 +16,6 @@ class cluster():
         self.members = None
         self.ids = None
         self.size = 0
-        self.mean = self.center
 
     def add_member(self, id, coordinates):
         """
@@ -62,3 +62,10 @@ class cluster():
         :return: coordinates of the mean of the cluster
         """
         return np.mean(self.members, axis=0)
+
+    def update_center(self):
+        """
+        Uses get_mean to update the center of the cluster
+        :return: nothing
+        """
+        self.center = self.get_mean()
